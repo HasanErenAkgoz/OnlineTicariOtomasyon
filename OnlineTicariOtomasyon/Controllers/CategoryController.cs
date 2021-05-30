@@ -31,11 +31,15 @@ namespace OnlineTicariOtomasyon.Controllers
         [HttpPost]
         [Authorize(Roles = "yönetici")]
 
-        public ActionResult Add(Category category)
+        public ActionResult Add( Category category)
         {
             using (var context = new Context())
             {
-
+                if (category.Name==category.Name)
+                {
+                    ViewBag.error = "Böyle bir kullanıcı bulunamadı";
+                }
+                else
                 context.Categories.Add(category);
                 context.SaveChanges();
                 return RedirectToAction("Index");

@@ -18,22 +18,24 @@ namespace OnlineTicariOtomasyon.Controllers
         Context context = new Context();
         public ActionResult Index()
         {
-
+            Sales sales1 = new Sales();
             var result = (string)Session["Email"];
             var value = context.Messages.Where(cari => cari.Alıcı == result).ToList();
             ViewBag.email = result;
 
             var mailId = context.Caris.Where(cari => cari.Email == result).Select(y => y.Id).FirstOrDefault();
-            ViewBag.mailId=mailId;
+            ViewBag.mailId = mailId;
 
             var totalSales = context.Sales.Where(sales => sales.CariId == mailId).Count();
             ViewBag.totalSales = totalSales;
 
-           var totalPrice = context.Sales.Where(sales => sales.CariId == mailId).Sum(y => y.TotalPrice);
-            ViewBag.totalPrice = totalPrice;
-
-            var totalProduct = context.Sales.Where(sales => sales.CariId == mailId).Sum(y => y.TotalProduct);
-            ViewBag.totalProduct = totalProduct;
+            
+                var totalPrice = context.Sales.Where(sales => sales.CariId == mailId).Sum(y => (decimal?)y.TotalPrice);
+                ViewBag.totalPrice = totalPrice;
+                var totalProduct = context.Sales.Where(sales => sales.CariId == mailId).Sum(y => (decimal?)y.TotalProduct);
+                ViewBag.totalProduct = totalProduct;
+            
+           
 
             var nameSurname = context.Caris.Where(cari => cari.Email == result).Select(y=>y.Name+" "+y.Surname).FirstOrDefault();
             ViewBag.nameSurname = nameSurname;

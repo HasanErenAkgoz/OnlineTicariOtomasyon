@@ -105,7 +105,7 @@ namespace OnlineTicariOtomasyon.Controllers
                 result.Stock = product.Stock;
                 result.PurchasePrice = product.PurchasePrice;
                 result.SalesPrice = product.SalesPrice;
-                result.ProductImage = product.ProductImage;
+                //result.ProductImage = product.ProductImage;
                 result.Status = true;
                 result.CategoryId = product.CategoryId;
                 result.Explanation = product.Explanation;

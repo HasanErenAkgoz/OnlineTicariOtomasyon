@@ -21,7 +21,7 @@
     @Html.TextBoxFor(personel => personel.Surname, new { @class = "form-control" })
     <hr />
     <label>Personel Resmi</label>
-    <input type="file" name="PersonelImagePath" />
+    <input type="file" name="PersonelImagePath" value="https://i.resmim.net/i/soru-isareti-nasil-yapilir-bilgisayar-klavyesinde-soru-isareti.jpg" />
     <hr />
     <label>Personel Departmanı</label>
     @Html.DropDownListFor(department => department.DepartmentId, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })

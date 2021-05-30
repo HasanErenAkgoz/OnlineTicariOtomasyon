@@ -26,7 +26,7 @@
     @Html.TextBoxFor(product => product.SalesPrice, new { @class = "form-control" })
     <hr />
     <label>Ürün Resmi</label>
-    <input type="file" name="ProductImage" />
+    <input type="file" name="ProductImage"  />
     <hr />
     <label>Kategori </label>
     @Html.DropDownListFor(product => product.CategoryId, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
