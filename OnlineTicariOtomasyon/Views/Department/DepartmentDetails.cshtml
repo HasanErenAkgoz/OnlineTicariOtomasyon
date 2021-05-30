@@ -1,0 +1,33 @@
+﻿@using OnlineTicariOtomasyon.Models.Entity
+@model List<Personel>
+@{
+    ViewBag.Title = "DepartmentDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .card {
+        float: left;
+        margin: 1.5rem;
+        align-content: center
+    }
+</style>
+<br />
+
+<center>
+    <h2>Departmana Ait Personel Bilgileri</h2>
+    @foreach (var personel in Model)
+    {
+
+
+        <div class="card" style="width: 15rem;">
+            <img src="@personel.PersonelImagePath" class="card-img-top" alt="...">
+            <center> <h5 style="margin-top:5px" class="card-title">@personel.Name @personel.Surname </h5></center>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Departman:<strong> @ViewBag.dpt</strong></li>
+            </ul>
+            <a href="~/Department/DepartmentPersonelSales/@personel.Id" class="btn btn-default" style="background-color:#00ff90;">Satışlar</a>
+
+        </div>
+    }
+</center>

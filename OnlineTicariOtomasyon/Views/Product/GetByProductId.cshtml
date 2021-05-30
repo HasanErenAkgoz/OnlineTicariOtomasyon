@@ -1,0 +1,39 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Product
+@{
+    ViewBag.Title = "GetByProductId";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+@using (Html.BeginForm("Update", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <label>Ürün Id</label>
+    @Html.TextBoxFor(product => product.Id, new { @class = "form-control", @readonly = "readonly" })
+    <hr />
+    <label>Ürün Adı</label>
+    @Html.TextBoxFor(product => product.Name, new { @class = "form-control" })
+    <hr />
+    <label>Ürün Markası</label>
+    @Html.TextBoxFor(product => product.Brand, new { @class = "form-control" })
+    <hr />
+    <label>Ürün Stok Adedi</label>
+    @Html.TextBoxFor(product => product.Stock, new { @class = "form-control" })
+    <hr />
+    <label>Ürün Alış Fiyatı</label>
+    @Html.TextBoxFor(product => product.PurchasePrice, new { @class = "form-control" })
+    <hr />
+    <label>Ürün Satış Fiyatı</label>
+    @Html.TextBoxFor(product => product.SalesPrice, new { @class = "form-control" })
+    <hr />
+    <label>Ürün Resmi</label>
+    <input type="file" name="ProductImage" />
+    <hr />
+    <label>Kategori </label>
+    @Html.DropDownListFor(product => product.CategoryId, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
+    <hr />
+    <label>Ürün Açıklaması </label>
+    @Html.TextAreaFor(product => product.Explanation, new { @class = "form-control" })
+    <hr />
+    <button class="btn btn-success">Güncelle</button>
+}
+

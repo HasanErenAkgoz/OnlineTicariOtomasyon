@@ -1,0 +1,31 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Personel
+
+@{
+    ViewBag.Title = "GeyByPersonelId";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+@using (Html.BeginForm("Update", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <label>Personel Id</label>
+    @Html.TextBoxFor(personel => personel.Id, new { @class = "form-control", @readonly = "readonly" })
+    <label>Personel Tc</label>
+    @Html.TextBoxFor(personel => personel.TcKimlik, new { @class = "form-control" })
+    <hr />
+
+    <label>Personel Adı</label>
+    @Html.TextBoxFor(personel => personel.Name, new { @class = "form-control" })
+    <hr />
+    <label>Personel Soyadı</label>
+    @Html.TextBoxFor(personel => personel.Surname, new { @class = "form-control" })
+    <hr />
+    <label>Personel Resmi</label>
+    <input type="file" name="PersonelImagePath" />
+    <hr />
+    <label>Personel Departmanı</label>
+    @Html.DropDownListFor(department => department.DepartmentId, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
+    <hr />
+    <button style="margin-top:5px" class="btn btn-warning">Güncelle</button>
+
+}

@@ -1,0 +1,60 @@
+﻿@using OnlineTicariOtomasyon.Models.Entity
+@model List<Sales>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    table {
+        margin-top: 10px;
+    }
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+<br />
+<table id="tbl1" class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Personel Adı-Soyadı</th>
+            <th>Cari Adı-Soyadı</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Toplam Fiyat</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sales in Model)
+        {
+            <tr>
+                <td>@sales.Personel.Name @sales.Personel.Surname</td>
+                <td>@sales.Cari.Name @sales.Cari.Surname</td>
+                <td>@sales.Product.Name</td>
+                <td>@sales.Price</td>
+                <td>@sales.TotalProduct</td>
+                <td>@sales.TotalPrice</td>
+                <td><a href="~/Sales/GetBySatısId/@sales.Id" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json"
+        }});
+</script>

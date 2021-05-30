@@ -1,0 +1,66 @@
+﻿@using OnlineTicariOtomasyon.Models.Entity
+@model List<Expenses>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table id="myTable" class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <td>Fatura İsmi</td>
+            <td>Tarih</td>
+            <td>Fiyat</td>
+            <td>İşlemler</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Explanation</td>
+                <td>@item.Date</td>
+                <td>@item.Price</td>
+                <td><a href="~/Expenses/Delete/@item.Id" class="btn btn-danger">Sil</a>  <a href="~/Expenses/GetByExpensesId/@item.Id" class="btn btn-warning">Güncelle</a> </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Add">
+    Gider Ekle
+</button>
+
+    <div class="modal fade" id="Add" tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <form method="post" action="~/Expenses/Add">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>
+                                Fatura İsmini Giriniz
+                            </label>
+                            <input type="text" name="Explanation" maxlength="50" required class="form-control" placeholder="Lütfen Fatura Adını Giriniz" />
+                            <hr />
+                            <label>
+                                Fiyat Girinz
+                            </label>
+                            <input type="number" name="Price" required class="form-control" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+
+                        <button type="submit" class="btn btn-primary">Kategori Ekle</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

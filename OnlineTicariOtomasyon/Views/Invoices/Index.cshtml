@@ -1,0 +1,149 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.InvoiceOperation
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<br />
+<br />
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+
+        <div class="row">
+
+            <h2 class="panel-title pull-left" style="margin-left:10px;">
+
+                <strong>Fatura & Kalem İşlemleri </strong>
+
+            </h2>
+
+            <button style="margin-right:10px" class="btn btn-primary pull-right" data-toggle="modal" data-target="#Add">Fatura Girişi</button>
+
+        </div>
+
+    </div>
+    @foreach (var item in Model.Value)
+
+    {
+        <div class="panel-body">
+
+            <table class="table table-striped table-responsive">
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Fatura No: @item.InvoiceNo </td>
+                        <td>Tarih: @item.DateTime </td>
+                        <td>Vergi Dairesi: @item.TaxAdministration  </td>
+                        <td>Teslim Eden Personel: @item.Personel.Name @item.Personel.Surname  </td>
+                        <td>Teslim Alan Cari:  @item.Cari.Name @item.Cari.Surname   </td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="5">
+
+                            <table class="table table-bordered">
+
+                                <tbody>
+
+                                    <tr>
+                                        <th>Açıklama</th>
+
+                                        <th>Miktar</th>
+
+                                        <th>Fiyat</th>
+
+                                    </tr>
+
+                                    @{
+
+                                        var totalBill = 0;
+
+                                    }
+
+                                    @foreach (var order in item.InvoicesItems)
+
+                                    {
+
+                                        <tr>
+
+                                            <td>@order.Explanation</td>
+
+                                            <td>@order.Quantity</td>
+
+                                            <td>@order.Price</td>
+                                        </tr>
+
+                                        totalBill = totalBill + @Convert.ToInt32(order.TotalPrice);
+
+                                    }
+
+                                </tbody>
+
+                            </table>
+
+                            <span class="pull-right" style="margin-right:100px;"><strong>Toplam Fatura Tutarı :  </strong>@totalBill </span>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+<div class="modal fade" id="Add" tabindex="-1" role="dialog" aria-labelledby="">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <center><h2>Fatura Ekle</h2></center>
+
+            <form method="post" action="~/Invoices/Add">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>
+                            Fatura Numarasını Giriniz
+                        </label>
+                        <input type="text" name="InvoiceNo" maxlength="50" required class="form-control" placeholder="Lütfen Fatura Numarasını Giriniz" />
+                        <br />
+                        <label>
+                            Fatura Tarihini Giriniz
+                        </label>
+                        <input type="date" name="DateTime" required class="form-control" />
+                        <br />
+                        <label>
+                            Vergi Dairesi
+                        </label>
+                        <input type="text" name="TaxAdministration" maxlength="50" required class="form-control" placeholder="Lütfen Vergi Dairesinin İsi Giriniz" />
+                        <br />
+                        @Html.Action("InvoicesDetail", "Invoices")
+                        <br />
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+
+                    <button type="submit" id="btn1" class="btn btn-primary">Fatura Ekle</button>
+
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+
+

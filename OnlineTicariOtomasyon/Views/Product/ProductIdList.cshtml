@@ -1,0 +1,39 @@
+﻿
+@model OnlineTicariOtomasyon.Models.Entity.Sales
+
+@{
+    ViewBag.Title = "ProductIdList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<form method="post">
+    <label>Personel Adı</label>
+    @Html.DropDownListFor(sales => sales.PersonelId, (List<SelectListItem>)ViewBag.personelName, new { @class = "form-control" })
+    <hr />
+    <label>Müşteri Adı</label>
+    @Html.DropDownListFor(sales => sales.CariId, (List<SelectListItem>)ViewBag.cariName, new { @class = "form-control" })
+    <hr />
+    <label>Ürün Adı</label>
+    @Html.DropDownListFor(sales => sales.ProductId, (List<SelectListItem>)ViewBag.productName, new { @class = "form-control" })
+    <hr />
+    <label>Fiyatı</label>
+    <input type="number" id="Price" name="Price" value="@ViewBag.productPrice"  class="form-control" onkeyup="sum()" />
+    <hr />
+    <label>Ürün Adedi</label>
+    <input type="number" name="TotalProduct" id="totalProduct" class="form-control" onkeyup="sum()" />
+    <hr />
+    <label>Toplam Fiyat</label>
+    <input type="number" name="TotalPrice" id="totalPrice" class="form-control" />
+    <hr />
+    <button name="result" value="ekle" class="btn btn-primary">Satış yap</button>
+
+</form>
+<script>
+    function sum() {
+        var price = document.getElementById('Price').value;
+        var totalProduct = document.getElementById('totalProduct').value;
+        var result = parseInt(price) * parseInt(totalProduct);
+        if (!isNaN(result)) {
+            document.getElementById('totalPrice').value = result;
+        }
+    }
+</script>

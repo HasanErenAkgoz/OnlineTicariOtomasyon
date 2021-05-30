@@ -1,0 +1,30 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Personel
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+@using (Html.BeginForm("Add", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<form method="post">
+    <label>Personel Tc</label>
+    <input type="number" name="TcKimlik" maxlength="11"  class="form-control" placeholder="Lütfen Tc Kimlik  Giriniz" />
+    <hr />
+    <label>Personel Adı</label>
+    <input type="text" maxlength="50" name="Name" class="form-control" placeholder="Lütfen Personel Adını  Giriniz" />
+    <hr />
+    <label>Personel Soyadı</label>
+    <input type="text" maxlength="50" name="Surname" class="form-control" placeholder="Lütfen Personel Soyadını  Giriniz" />
+    <hr />
+    <label>Personel Resmi</label>
+    <input type="file" class="form-control" name="PersonelImagePath" />
+    <hr />
+    <label>Personel Departmanı</label>
+    @Html.DropDownListFor(department => department.DepartmentId, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
+    <hr />
+    <button style="margin-top:5px" class="btn btn-primary">Personel Ekle</button>
+</form>
+}
+
+

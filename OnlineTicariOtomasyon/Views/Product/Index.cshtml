@@ -1,0 +1,62 @@
+﻿@using OnlineTicariOtomasyon.Models.Entity
+@model List<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .card {
+        float: left;
+        margin: 1.5rem;
+        align-content: center
+    }
+
+    img {
+        height: 15rem;
+        object-fit: contain
+    }
+
+    h5 {
+        margin-top: 10px
+    }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+<br />
+@using (Html.BeginForm("Index", "Product", FormMethod.Post))
+{
+    <p>
+        Ürün Adını veya Markasını Giriniz: @Html.TextBox("P") <input type="submit" value="Ara" />
+    </p>
+}
+
+@foreach (var product in Model)
+{
+
+    <center>
+        <div class="card" style="width: 20rem;">
+            <img src="@product.ProductImage" class="card-img-top" alt="...">
+            <center> <h5 class="card-title">@product.Name</h5></center>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Marka:<strong> @product.Brand</strong></li>
+
+                <li class="list-group-item">Alış Fiyatı:<strong> @product.PurchasePrice ₺</strong></li>
+                <li class="list-group-item">Stok Durumu:<strong> @product.Stock </strong></li>
+                <li class="list-group-item">Kategorisi: <strong>@(product.Category.Name)</strong> </li>
+            </ul>
+            <div class="card-body">
+                <center>
+                    <a href="~/Product/Delete/@product.Id" class="btn btn-danger">Ürünü Sil</a>
+                    <a href="~/Product/GetByProductId/@product.Id" class="btn btn-warning">Güncelle</a>
+                    <a style="margin:auto" href="~/Product/ProductDetail/@product.Id" class="btn btn-primary">Satış Yap</a>
+                    <a style="margin:5px; background-color:#00ff90" href="~/Product/ProductDetail/@product.Id" class="btn btn-default" >Detaylar</a>
+
+                </center>
+            </div>
+        </div>
+    </center>
+
+}
+
+

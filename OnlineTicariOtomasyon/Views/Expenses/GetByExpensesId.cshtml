@@ -1,0 +1,25 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Expenses
+
+@{
+    ViewBag.Title = "GetByExpensesId";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Update", "Expenses", FormMethod.Post))
+
+{
+    <label>Kategori Id</label>
+    @Html.TextBoxFor(expenses => expenses.Id, new { @class = "form-control", @readonly = "readonly" })
+    <hr />
+    <label>Fatura Adı</label>
+    @Html.TextBoxFor(expenses => expenses.Explanation, new { @class = "form-control" })
+    <hr />
+    <label>Tarih</label>
+    @Html.TextBoxFor(expenses => expenses.Date, new { @class = "form-control", type = "date" })
+    <hr />
+    <label>Fatura Adı</label>
+    @Html.TextBoxFor(expenses => expenses.Explanation, new { @class = "form-control" })
+    <hr />
+    <button class="btn btn-warning" style="margin-top:5px">Kategori Güncelle</button>
+
+}

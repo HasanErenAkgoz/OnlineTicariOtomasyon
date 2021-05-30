@@ -1,0 +1,140 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Akgöz Ticari Otomasyon</title>
+    <link href="~/Web/dist/css/styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">İşlemler</div>
+
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Ürünler
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="~/Product/Index" layout-static.html">Ürün Bilgileri</a> <a class="nav-link" href="~/Product/Add">Ürün Ekle</a></nav>
+                        </div>
+                        <a class="nav-link" href="~/Category/Index">
+                            <div class="sb-nav-link-icon"><i class="fab fa-accusoft"></i></div>
+                            Kategoriler
+                        </a>
+                        <a class="nav-link" href="~/Department/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
+                            Departmanlar
+                        </a>
+                        <a class="nav-link" href="~/Cari/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                            Cariler
+                        </a>
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePersonel" aria-expanded="false" aria-controls="collapsePersonel">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-friends"></i></div>
+                            Personeller
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePersonel" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="~/Personel/Index" layout-static.html">Personel Bilgileri</a>
+                                <a class="nav-link" href="~/Personel/Add">Personel Ekle</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-pie"></i></div>
+                            Grafikler
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-double-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    Grafik Türleri
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-unlock-alt"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="~/Graphic/Index">Pie Grafik</a>
+                                        <a class="nav-link" href="~/Graphic/LineIndex">Line Grafik</a>
+                                        <a class="nav-link" href="~/Graphic/Index3">Column Grafik</a>
+                                    </nav>
+                                </div>
+
+                            </nav>
+                        </div>
+                        <div class="sb-sidenav-menu-heading">Rapor ve Faturalar</div>
+                        <a class="nav-link" href="~/Sales/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Satışlar
+                        </a>
+                        <a class="nav-link" href="~/Invoices/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-file-invoice"></i></div>
+                            Faturalar
+                        </a>
+                        <a class="nav-link" href="~/Expenses/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-money-check-alt"></i></div>
+                            Giderler
+                        </a>
+                        <a class="nav-link" href="~/Cargo/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-truck-moving"></i></div>
+                            Kargolar
+                        </a>
+
+                        <a class="nav-link" href="~/Statistics/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                            İstatistikler
+                        </a>
+                        <a class="nav-link" href="~/Statistics/SimplesTable">
+                            <div class="sb-nav-link-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                            Hızlı Bakış Tabloları
+                        </a>
+                        <a class="nav-link" href="~/Login/Index">
+                            <div class="sb-nav-link-icon"><i class="fab fa-facebook-messenger"></i></div>
+                            Çıkış Yap
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small"></div>
+                    Ticari Otomasyon
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </main>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="~/Web/js/scripts.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

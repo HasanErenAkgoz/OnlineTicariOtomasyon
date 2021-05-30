@@ -1,0 +1,34 @@
+﻿@using OnlineTicariOtomasyon.Models.Entity
+@model List<Sales>
+@{
+    ViewBag.Title = "MyOrders";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<center><h2>Cari Sipariş Takibi</h2></center>
+<br />
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>Ürün Adı</td>
+            <td>Personel Adı</td>
+            <td>Fiyat</td>
+            <td>Adet</td>
+            <td>Tarih</td>
+            <td>Toplam Tutar</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sales in Model)
+        {
+        <tr>
+            <td>@sales.Product.Name</td>
+            <td>@sales.Personel.Name @sales.Personel.Surname</td>
+            <td>@sales.Price</td>
+            <td>@sales.TotalProduct</td>
+            <td>@sales.Date</td>
+            <td>@sales.TotalPrice</td>
+        </tr>
+        }
+    </tbody>
+</table>

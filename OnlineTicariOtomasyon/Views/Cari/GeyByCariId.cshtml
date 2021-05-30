@@ -1,0 +1,30 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Cari
+@{
+    ViewBag.Title = "GeyByCariId";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+@using (Html.BeginForm("Update", "Cari", FormMethod.Post))
+
+{
+    <label>Cari Id</label>
+    @Html.TextBoxFor(cari => cari.Id, new { @class = "form-control", @readonly = "readonly" })
+    <hr />
+    <label>Cari Adı</label>
+    @Html.TextBoxFor(cari => cari.Name, new { @class = "form-control" })
+    <hr />
+    <label>Cari Soyadı</label>
+    @Html.TextBoxFor(cari => cari.Surname, new { @class = "form-control" })
+    <hr />
+    <label>Cari Şehri</label>
+    @Html.TextBoxFor(cari => cari.City, new { @class = "form-control" })
+    <hr />
+    <label>Cari Email</label>
+    @Html.TextBoxFor(cari => cari.Email, new { @class = "form-control" })
+    <hr />
+    <label>Cari Şifresi</label>
+    @Html.TextBoxFor(cari => cari.Password, new { @class = "form-control" })
+    <hr />
+    <button class="btn btn-warning" style="margin-top:5px">Cari Güncelle</button>
+}

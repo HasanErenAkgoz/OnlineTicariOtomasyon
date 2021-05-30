@@ -1,0 +1,18 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Category
+@{
+
+    ViewBag.Title = "GetByCategoryId";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+@using (Html.BeginForm("Update", "Category", FormMethod.Post))
+
+{
+    <label>Kategori Id</label>
+    @Html.TextBoxFor(category => category.Id, new { @class = "form-control", @readonly = "readonly" })
+    <hr />
+    <label>Kategori Adınız</label>
+    @Html.TextBoxFor(category => category.Name, new { @class = "form-control" })
+    <button class="btn btn-warning" style="margin-top:5px">Kategori Güncelle</button>
+
+}

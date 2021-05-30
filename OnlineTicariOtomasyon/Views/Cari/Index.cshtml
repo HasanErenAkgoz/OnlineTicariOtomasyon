@@ -1,0 +1,93 @@
+﻿@using OnlineTicariOtomasyon.Models.Entity
+@model List<Cari>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.6.0.js"></script>
+<br />
+    <table id="tbl1" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Adı Soyadı</th>
+                <th>Şehri</th>
+                <th>Email Adresi</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cari in Model)
+            {
+                <tr>
+                    <td>@cari.Name @cari.Surname</td>
+                    <td>@cari.City</td>
+                    <td>@cari.Email</td>
+                    <td>
+                        <a href="~/Cari/Delete/@cari.Id" class="btn btn-danger">Sil</a>  <a href="~/Cari/GeyByCariId/@cari.Id" class="btn btn-warning">Güncelle</a>
+                        <a href="~/Cari/PersonelSales/@cari.Id" class="btn btn-default" style="background-color:cornflowerblue">Cari Geçmişi</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Add">
+    Cari Ekle
+</button>
+<div class="modal fade" id="Add" tabindex="-1" role="dialog" aria-labelledby="">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <center><h4 style="text-align:center;">Cari Ekleme Ekranı</h4></center>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <form method="post" action="~/Cari/Add">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Cari Adı</label>
+                        <input type="text" maxlength="50" required class="form-control" name="Name" placeholder="Lütfen Cari Adını Giriniz" />
+                        <hr />
+                        <label>Cari Soyadı</label>
+                        <input type="text" maxlength="50" required class="form-control" name="Surname" placeholder="Lütfen Soyadını Adını Giriniz" />
+                        <hr />
+                        <label>Cari Şehri</label>
+                        <input type="text" maxlength="50" required class="form-control" name="City" placeholder="Lütfen Cari Şehrini Giriniz" />
+                        <hr />
+                        <label>Cari Email Adresi</label>
+                        <input type="text" maxlength="50" required class="form-control" name="Email" placeholder="Lütfen Cari Email Adresini Giriniz" />
+                        <hr />
+                        <label>Cari Şifresi Adresi</label>
+                        <input type="text" maxlength="60" required class="form-control" name="Password" placeholder="Lütfen Cari Şifresi Giriniz" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+
+                    <button type="submit" class="btn btn-primary">Cari Ekle</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json"
+        }
+    });
+</script>
+
+

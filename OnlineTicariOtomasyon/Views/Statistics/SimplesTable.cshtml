@@ -1,0 +1,157 @@
+﻿@model IEnumerable<OnlineTicariOtomasyon.Models.SinifGrup>
+@{
+    ViewBag.Title = "SimplesTable";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hızlı Bakış Tabloları</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+      
+ 
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Hızlı Bakış Tabloları</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="~/Personel/Index">Personel Bİlgileri</a></li>
+                                <li class="breadcrumb-item active">Hızlı Bakış Tabloları</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                               
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    @Html.Action("PartialProduct", "Statistics")
+
+                                </div>
+                                <!-- /.card-body -->
+                               
+                            </div>
+                            <!-- /.card -->
+                           
+                            @Html.Action("Partial1","Statistics")
+      
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Müşteri Şehir Tablosu</h3>
+
+                                    <div class="card-tools">
+
+                                    </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body p-0">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 10px">#</th>
+                                                <th>Şehir</th>
+                                                <th>Progress Bar</th>
+                                                <th style="width: 40px">Adet</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int value = 0;}
+                                            @foreach (var item in Model)
+                                            {
+
+                                                <tr>
+                                                    <td>@{value++;} @value</td>
+                                                    <td>@item.City</td>
+                                                    <td>
+                                                        @if (item.Toplam == 1)
+                                                        {
+                                                            <div class="progress progress-xs">
+                                                                <div class="progress-bar progress-bar-success" style="width: @item.Toplam%"></div>
+                                                            </div>
+                                                        }
+                                                        else if (item.Toplam == 2)
+                                                        {
+                                                            <div class="progress progress-xs">
+                                                                <div class="progress-bar bg-warning" style="width: @item.Toplam%"></div>
+                                                            </div>
+                                                        }
+                                                    </td>
+                                                    @if (item.Toplam == 1)
+                                                    {
+                                                        <td><span class="badge bg-success">@item.Toplam</span></td>
+
+                                                    }
+                                                    else if (item.Toplam == 2)
+                                                    {
+                                                        <td><span class="badge bg-warning">@item.Toplam</span></td>
+
+                                                    }
+                                                </tr>
+                                            }
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                            @Html.Action("PartialBrand", "Statistics")
+
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+              
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+      
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+</html>
+

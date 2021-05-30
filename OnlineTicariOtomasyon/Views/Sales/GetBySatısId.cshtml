@@ -1,0 +1,48 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Sales
+
+@{
+    ViewBag.Title = "GetBySatısId";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<Center><h2>Satış İşlemi Güncelleme</h2></Center>
+<br />
+
+@using (Html.BeginForm("Update", "Sales", FormMethod.Post))
+{
+    <label>Personel Id</label>
+    @Html.DropDownListFor(sales => sales.Id, (List<SelectListItem>)ViewBag.personelName, new { @class = "form-control" })
+    <hr />
+    <label>Personel Adı</label>
+    @Html.DropDownListFor(sales => sales.PersonelId, (List<SelectListItem>)ViewBag.personelName, new { @class = "form-control" })
+    <hr />
+    <label>Müşteri Adı</label>
+    @Html.DropDownListFor(sales => sales.CariId, (List<SelectListItem>)ViewBag.cariName, new { @class = "form-control" })
+    <hr />
+    <label>Ürün Adı</label>
+    @Html.DropDownListFor(sales => sales.ProductId, (List<SelectListItem>)ViewBag.productName, new { @class = "form-control" })
+    <hr />
+    <label>Fiyatı</label>
+    @Html.TextBoxFor(product => product.Price, new { @class = "form-control", @required = "required", @id="Price",@onkeyup = "sum()" })
+    <hr />
+    <label>Adet</label>
+    @Html.TextBoxFor(product => product.TotalProduct, new { @class = "form-control", @required = "required", @id = "totalProduct",@onkeyup = "sum()" })
+    <hr />
+    <label>Toplam Fiyat</label>
+    @Html.TextBoxFor(product => product.TotalPrice, new { @class = "form-control", @required = "required", @id = "totalPrice" })
+    <hr />
+
+    <hr />
+    <button class="btn btn-primary" value="Hesapla">Fiyat Hesapla</button>
+    <button class="btn btn-success" value="Update">Güncelle</button>
+}
+<script>
+    function sum() {
+        var price = document.getElementById('Price').value;
+        var totalProduct = document.getElementById('totalProduct').value;
+        var result = parseInt(price) * parseInt(totalProduct);
+        if (!isNaN(result)) {
+            document.getElementById('totalPrice').value = result;
+        }
+    }
+</script>

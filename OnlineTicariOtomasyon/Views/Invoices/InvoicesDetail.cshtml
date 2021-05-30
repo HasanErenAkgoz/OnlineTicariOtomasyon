@@ -1,0 +1,28 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Invoice
+
+<input type="hidden" id="id" />
+
+
+<label >
+
+    Teslim Eden
+
+</label>
+
+<div >
+    <form>
+        @Html.DropDownListFor(personel => personel.PersonelId, (List<SelectListItem>)ViewBag.personel, new { @class = "form-control", @neme= "PersonelId" })
+    </form>
+</div>
+<br />
+<label >
+
+    Teslim Alan
+
+</label>
+
+<div >
+
+    @Html.DropDownListFor(personel => personel.PersonelId, (List<SelectListItem>)ViewBag.personel, new { @class = "form-control", @neme = "PersonelId" })
+
+</div>

@@ -1,0 +1,41 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Product
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+@using (Html.BeginForm("Add", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<form method="post">
+    <label>Ürün Adını Giriniz </label>
+    <input type="text" name="Name" maxlength="50" required  class="form-control" />
+    <hr />
+    <label>Marka Adını Giriniz </label>
+    <input type="text" name="Brand" maxlength="50" required class="form-control" />
+    <hr />
+    <label>Stok Adedini Giriniz </label>
+    <input type="number" name="Stock" maxlength="50" required class="form-control" />
+    <hr />
+    <label>Alış Fiyatını Giriniz ₺ </label>
+    <input type="number" name="PurchasePrice" maxlength="50" required class="form-control" />
+    <hr />
+    <label>Satış Fiyatını Giriniz ₺ </label>
+    <input type="number" name="SalesPrice" maxlength="50" required class="form-control" />
+    <hr />
+    <label>Ürün Resmi</label>
+    <input type="file" class="form-control" name="PersonelImagePath" />
+    <hr />
+    <hr />
+    <label>Kategori </label>
+    @Html.DropDownListFor(product => product.CategoryId, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
+    <hr />
+    <label>Ürün Açıklaması </label>
+    <input type="text" name="Explanation" required class="form-control" />
+    <hr />
+    <label>Durumu</label>
+    <input type="text" name="Status" maxlength="50" required value="true" class="form-control" />
+    <hr />
+    <button type="submit" class="btn btn-primary">Kategori Ekle</button>
+
+</form>
+}
