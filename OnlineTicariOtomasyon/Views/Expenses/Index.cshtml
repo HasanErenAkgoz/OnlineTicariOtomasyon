@@ -23,7 +23,7 @@
                 <td>@item.Explanation</td>
                 <td>@item.Date</td>
                 <td>@item.Price</td>
-                <td><a href="~/Expenses/Delete/@item.Id" class="btn btn-danger">Sil</a>  <a href="~/Expenses/GetByExpensesId/@item.Id" class="btn btn-warning">Güncelle</a> </td>
+                <td><a href="~/Expenses/Delete/@item.Id" class="btn btn-danger" onclick = "return confirm('Bu gideri silmek istediğinizden emin misiniz?')">Sil</a>  <a href="~/Expenses/GetByExpensesId/@item.Id" class="btn btn-warning">Güncelle</a> </td>
             </tr>
         }
     </tbody>

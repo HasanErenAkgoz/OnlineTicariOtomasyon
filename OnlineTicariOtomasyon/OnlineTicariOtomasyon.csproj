@@ -155,7 +155,6 @@
     <Compile Include="Controllers\QrCodeController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
-    <Compile Include="Controllers\SweetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2192,11 +2191,6 @@
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Content\sweetalert.css" />
-    <Content Include="Content\sweetalert\bootstrap-sweetalert.png" />
-    <Content Include="Content\sweetalert\docs.css" />
-    <Content Include="Content\sweetalert\sweet-alert.css" />
-    <Content Include="Content\sweetalert\thumbs-up.jpg" />
     <Content Include="Content\Table.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -2283,11 +2277,6 @@
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
-    <Content Include="Content\sweetalert\sweet-alert.less" />
-    <Content Include="Content\sweetalert\sweet-alert-combine.less" />
-    <Content Include="Content\sweetalert\sweet-alert-animations.less" />
-    <Content Include="Content\bootstrap\variables.less" />
-    <Content Include="Content\bootstrap\mixins.less" />
     <None Include="Scripts\jquery-3.6.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -2297,7 +2286,6 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="web2\css\bootstrap.css" />
     <Content Include="web2\css\clndr.css" />
     <Content Include="web2\css\jqvmap.css" />
@@ -2803,7 +2791,6 @@
     <Content Include="Views\CariPanel\Index.cshtml" />
     <Content Include="Views\CariPanel\MyOrders.cshtml" />
     <Content Include="Views\Alerts\Index.cshtml" />
-    <Content Include="Views\Sweet\Alert.cshtml" />
     <Content Include="Views\Product\ProductIdList.cshtml" />
     <Content Include="Views\Cargo\Index.cshtml" />
     <Content Include="Views\Cargo\Add.cshtml" />

@@ -39,7 +39,7 @@
         </ul>
         <div class="card-body">
             <center>
-                <a href="~/Personel/Delete/@personel.Id" class="btn btn-danger">Personel Sil</a>
+                <a href="~/Personel/Delete/@personel.Id" class="btn btn-danger" onclick = "return confirm('Bu personeli silmek istediğinizden emin misiniz?')">Personel Sil</a>
                 <a href="~/Personel/GeyByPersonelId/@personel.Id" class="btn btn-warning"> Güncelle</a>
                 <a style="margin-top:5px" href="~/Personel/PersonelSales/@personel.Id" class="btn btn-primary">Personel Detayları</a>
 

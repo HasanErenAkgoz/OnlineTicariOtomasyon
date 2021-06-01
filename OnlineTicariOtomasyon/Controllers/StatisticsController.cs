@@ -43,7 +43,7 @@ namespace OnlineTicariOtomasyon.Controllers
             ViewBag.maxProductPrice = maxProductPrice;
 
             var minProductPrice = (from product in context.Products orderby product.SalesPrice ascending select product.Name).FirstOrDefault();
-            ViewBag.minProductPrice = maxProductPrice;
+            ViewBag.minProductPrice = minProductPrice;
 
             var totalMony = context.Sales.Sum(sales => sales.TotalPrice).ToString();
             ViewBag.totalMony = totalMony;

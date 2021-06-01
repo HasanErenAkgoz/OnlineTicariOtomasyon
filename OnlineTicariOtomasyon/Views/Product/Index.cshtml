@@ -47,7 +47,7 @@
             </ul>
             <div class="card-body">
                 <center>
-                    <a href="~/Product/Delete/@product.Id" class="btn btn-danger">Ürünü Sil</a>
+                    <a href="~/Product/Delete/@product.Id" onclick = "return confirm('Bu ürünü silmek istediğinizden emin misiniz?')" class="btn btn-danger">Ürünü Sil</a>
                     <a href="~/Product/GetByProductId/@product.Id" class="btn btn-warning">Güncelle</a>
                     <a style="margin:auto" href="~/Product/ProductDetail/@product.Id" class="btn btn-primary">Satış Yap</a>
                     <a style="margin:5px; background-color:#00ff90" href="~/Product/ProductDetail/@product.Id" class="btn btn-default" >Detaylar</a>

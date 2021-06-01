@@ -29,7 +29,7 @@
             <tr>
                 <td>@departman.Name</td>
                 <td>
-                    <a href="~/Department/Delete/@departman.Id" class="btn btn-danger">Sil</a>
+                    <a href="~/Department/Delete/@departman.Id"  onclick = "return confirm('Bu departmanı silmek istediğinizden emin misiniz?')" class="btn btn-danger">Sil</a>
                     <a href="~/Department/GetByDepartmentId/@departman.Id" class="btn btn-warning">Güncelle</a>
                 </td>
                 <td>  <a href="~/Department/DepartmentDetails/@departman.Id" class="btn btn-primary">Departman Detayları</a></td>

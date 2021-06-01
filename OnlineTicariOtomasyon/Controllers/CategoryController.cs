@@ -4,6 +4,7 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -31,19 +32,17 @@ namespace OnlineTicariOtomasyon.Controllers
         [HttpPost]
         [Authorize(Roles = "yönetici")]
 
-        public ActionResult Add( Category category)
+        public ActionResult Add(Category category)
         {
+            StringBuilder stringBuilder = new StringBuilder();
             using (var context = new Context())
             {
-                if (category.Name==category.Name)
-                {
-                    ViewBag.error = "Böyle bir kullanıcı bulunamadı";
-                }
-                else
-                context.Categories.Add(category);
-                context.SaveChanges();
-                return RedirectToAction("Index");
-                    
+               
+                    context.Categories.Add(category);
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
+                
+
             }
         }
         public ActionResult Delete(int Id)
@@ -63,7 +62,7 @@ namespace OnlineTicariOtomasyon.Controllers
             return View("GetByCategoryId", result);
 
 
-        } 
+        }
         public ActionResult Update(Category category)
         {
             using (var context = new Context())
@@ -74,6 +73,6 @@ namespace OnlineTicariOtomasyon.Controllers
                 return RedirectToAction("Index");
             }
         }
-    
+
     }
 }

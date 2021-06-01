@@ -23,7 +23,7 @@
 <script src="~/Scripts/jquery-3.6.0.js"></script>
 <br />
 
-    <table id="tbl1" class="table table-bordered table-hover">
+<table id="tbl1" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Kategori Adı</th>
@@ -35,13 +35,15 @@
         {
             <tr>
                 <td>@category.Name</td>
-                <td><a id="btn2" href="~/Category/Delete/@category.Id" class="btn btn-danger">Sil</a>  <a href="~/Category/GetByCategoryId/@category.Id" class="btn btn-warning">Güncelle</a> </td>
-
+                <td>
+                    @Html.ActionLink("Sil", "Delete", new { id = category.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Bu Veriyi Gerçekten Silmek İstiyor Musunuz?')" })
+                    <a href="~/Category/GetByCategoryId/@category.Id" class="btn btn-warning">Güncelle</a>
+                </td>
             </tr>
         }
     </tbody>
 </table>
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Add">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Add" >
     Kategori Ekle
 </button>
 
@@ -64,7 +66,7 @@
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
 
-                    <button type="submit" id="btn1" class="btn btn-primary">Kategori Ekle</button>
+                    <button type="submit" id="btn1"  onclick = "return confirm('Bu Kategoriyi Eklemek İstediğinizden Emin Misiniz?')" class="btn btn-primary">Kategori Ekle</button>
 
                 </div>
             </form>
@@ -88,5 +90,8 @@
         }
     });
 </script>
-
-
+<script>
+    $('#delete').click(function () {
+        swal("Good job!", "You clicked the button!", "success");
+})
+</script>
