@@ -105,7 +105,7 @@ namespace OnlineTicariOtomasyon.Controllers
                 result.Stock = product.Stock;
                 result.PurchasePrice = product.PurchasePrice;
                 result.SalesPrice = product.SalesPrice;
-                //result.ProductImage = product.ProductImage;
+                result.ProductImage = product.ProductImage;
                 result.Status = true;
                 result.CategoryId = product.CategoryId;
                 result.Explanation = product.Explanation;
@@ -143,8 +143,8 @@ namespace OnlineTicariOtomasyon.Controllers
 
 
             var result = context.Sales.Find(id);
-            var productPrice = context.Products.Find(id);
-            ViewBag.productPrice =Convert.ToInt32(productPrice.SalesPrice);
+                var productPrice = context.Products.Find(id);
+                ViewBag.productPrice =Convert.ToInt32(productPrice.SalesPrice);
             return View("ProductIdList", result);
         }
         [HttpPost]

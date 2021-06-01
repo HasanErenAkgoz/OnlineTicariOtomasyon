@@ -21,6 +21,7 @@ namespace OnlineTicariOtomasyon.Controllers
             var totalProduct = context.Products.Count().ToString();
             ViewBag.totalProduct = totalProduct;
 
+
             var totalPersonel = context.Personels.Count().ToString();
             ViewBag.totalPersonel = totalPersonel;
 

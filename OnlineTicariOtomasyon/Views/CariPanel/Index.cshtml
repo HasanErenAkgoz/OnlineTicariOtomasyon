@@ -96,7 +96,7 @@
 
 
                                     <li class="list-group-item">
-                                        @if (ViewBag.totalPrice == "" || ViewBag.totalPrice == null)
+                                        @if ( ViewBag.totalPrice == null)
                                         {
                                             <b>Toplam Harcanılan Para</b> <a class="float-right">0 ₺ </a>
 
@@ -107,7 +107,7 @@
                                         }
                                     </li>
                                     <li class="list-group-item">
-                                        @if (ViewBag.totalPrice == "" || ViewBag.totalPrice == null)
+                                        @if ( ViewBag.totalPrice == null)
                                         {
                                             <b>Alınan Ürünlerin Adedi</b> <a class="float-right">0 </a>
                                         }
@@ -181,7 +181,7 @@
 
                                 <ul class="nav nav-pills">
 
-                                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Mesjlar</a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Mesajlar</a></li>
 
                                     <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Bildirimler</a></li>
 

@@ -25,7 +25,7 @@ namespace OnlineTicariOtomasyon.Controllers
         [HttpPost]
         public PartialViewResult Add(Cari cari)
         {
-            using (var context=new Context())
+            using (var context = new Context())
             {
                 context.Caris.Add(cari);
                 context.SaveChanges();
@@ -67,22 +67,22 @@ namespace OnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult AdminLogin(Admin admin)
         {
-            using (var context=new Context())
+            using (var context = new Context())
             {
                 var result = context.Admins.FirstOrDefault((admins => admins.Email == admin.Email && admins.Password
                 == admin.Password));
-                if (result!=null)
+                if (result != null)
                 {
                     FormsAuthentication.SetAuthCookie(result.Email, false);
                     Session["Email"] = result.Email.ToString();
-                    return RedirectToAction("Index","Product");
+                    return RedirectToAction("Index", "Product");
                 }
                 else
-                    return RedirectToAction("Index","Login");
+                    return RedirectToAction("Index", "Login");
 
             }
 
-        }
 
+        }
     }
 }
